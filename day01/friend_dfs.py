@@ -49,3 +49,58 @@ print("=== DFS: Jerry의 모든 친구 ===")
 result = dfs_friends(fr_info, 'Jerry')
 
 print(result)
+
+# 실습 3의 BFS 함수
+
+def bfs_friends(g, start):
+
+    qu = []
+
+    done = set()
+
+    qu.append(start)
+
+    done.add(start)
+
+    order = []
+
+    while qu:
+
+        p = qu.pop(0)
+
+        order.append(p)
+
+        for x in g[p]:
+
+            if x not in done:
+
+                qu.append(x)
+
+                done.add(x)
+
+    return order
+
+
+print("=== 비교: Summer에서 시작 ===")
+
+print("BFS:", bfs_friends(fr_info, 'Summer'))
+
+print("DFS:", dfs_friends(fr_info, 'Summer'))
+
+'''
+<탐색방식>
+BFS: 큐(줄서기)
+DFS: 재귀 / 스택
+
+<먼저 탐색하는 곳>
+BFS: 가장 가까운 곳부터
+DFS: 한 방향의 끝까지
+
+<최단경로>
+BFS: 무조건 보장함
+DFS: 멀리 돌아갈 수 있음
+
+<로봇 활용 예시>
+BFS: 자율주행 최단 경로 찾기
+DFS: 미로찾기, 모든 경로 탐색
+'''
