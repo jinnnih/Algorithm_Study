@@ -20,7 +20,6 @@ fr_info = {
 }
 
 
-
 def dfs_friends(g, start):
     done = set()       # 1. 이미 방문한 사람을 기록할 '집합' (BFS와 동일)
     order = []         # 방문 순서를 저장할 리스트
